@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-mediapicker" version="1.0.2">
+    <name>EasyMediaPicker</name>
+    <description>Media Picker Plugin</description>
+
+    <author>Takahiro Itazuri</author>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module name="EasyMediaPicker" src="www/EasyMediaPicker.js">
+        <clobbers target="EasyMediaPicker" />
+    </js-module>
+
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="EasyMediaPicker">
+                <param name="ios-package" value="EasyMediaPicker" />
+            </feature>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="NSAppleMusicUsageDescription">
+            <string>This app requires access to music library.</string>
+        </config-file>
+                
+        <header-file src="src/ios/EasyMediaPicker.h" />
+        <source-file src="src/ios/EasyMediaPicker.m" />
+
+        <framework src="MediaPlayer.framework" weak="true" />
+
+    </platform>
+</plugin>
